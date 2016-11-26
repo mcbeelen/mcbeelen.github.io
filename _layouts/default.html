@@ -8,9 +8,23 @@
 </head>
 <body>
     <header class="navbar navbar-default">
-        <a class="navbar-brand" href="/index.html">Home</a>
+        <div class="container">
+            <a class="navbar-brand" href="/index.html">mcbeelen.net</a>
+
+            <nav class="collapse navbar-collapse" id="bs-navbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/posts.html">Blog posts</a> </li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+
     </header>
 
-{{ content }}
+        <div class="container">
+            {{ content }}
+        </div>
 </body>
 </html>
