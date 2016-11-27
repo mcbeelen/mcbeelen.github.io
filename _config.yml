@@ -9,7 +9,9 @@ data_dir:     _data
 includes_dir: _includes
 collections:
   posts:
-    output:   true
+    output: true
+  lessons:
+    output: true
 
 
 
