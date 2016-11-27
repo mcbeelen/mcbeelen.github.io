@@ -9,7 +9,9 @@ data_dir:     _data
 includes_dir: _includes
 collections:
   posts:
-    output:   true
+    output: true
+  lessons:
+    output: true
 
 
 
@@ -17,8 +19,12 @@ collections:
 defaults:
   -
     scope:
-      path: "" # an empty string here means all files in the project
+      path: ""
     values:
       layout: "default"
 
-
+  -
+    scope:
+      path: "lessons"
+    values:
+      layout: "lesson"
