@@ -1,5 +1,24 @@
+nav {
+    background-color: #000066;
+    border-color: #000066;
+}
 
 dd {
     margin-left: 16px;
     margin-bottom: 20px;
+}
+
+.card {
+    background-color: #E3F2FD !important;
+}
+
+.card .card-content {
+    color: #0D47A1 !important;
+}
+.card .card-content .card-title {
+
+}
+
+.page-footer {
+    background-color: #0D47A1;
 }
