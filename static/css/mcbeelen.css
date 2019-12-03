@@ -23,9 +23,12 @@ dd {
 .card .card-content {
     color: #0D47A1 !important;
 }
-.card .card-content .card-title {
 
+ul ul {
+    padding-left: 20px;
 }
+
+*, *:
 
 .page-footer {
     background-color: #0D47A1;
