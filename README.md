@@ -8,4 +8,6 @@ Personal Github Page of McBeelen
 Building a local preview:
 ```bundle exec jekyll serve```
 
+### Prerequisites
 
+```sudo gem install bundler```
