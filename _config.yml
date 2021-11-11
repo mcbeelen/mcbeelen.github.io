@@ -28,3 +28,10 @@ defaults:
       path: "lessons"
     values:
       layout: "lesson"
+
+
+  -
+    scope:
+      path: "posts"
+    values:
+      layout: "default"
