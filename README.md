@@ -10,4 +10,7 @@ Building a local preview:
 
 ### Prerequisites
 
-```sudo gem install bundler```
+```bash
+    sudo gem install bundler
+    bundle install
+```
