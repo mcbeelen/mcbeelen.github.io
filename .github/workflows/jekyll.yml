@@ -13,5 +13,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: helaili/jekyll-action@v2
-        with:
+      with:
           token: ${{ secrets.JEKYLL_WORKFLOW_TOKEN_TO_REPO }}
