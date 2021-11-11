@@ -18,4 +18,10 @@ Building a local preview:
 
 ## Live publishing 
 
-Done with GitHub actions located in `.github/workflow`
+
+
+
+Done with [GitHub actions](https://jekyllrb.com/docs/continuous-integration/github-actions/) located in `.github/workflow`
+
+
+
