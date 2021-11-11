@@ -14,3 +14,8 @@ Building a local preview:
     sudo gem install bundler
     bundle install
 ```
+
+
+## Live publishing 
+
+Done with GitHub actions located in `.github/workflow`
