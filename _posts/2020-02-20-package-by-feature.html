@@ -3,16 +3,22 @@ title: Package-by-Feature
 date:   2020-02-20 20:00:00 +0100
 ---
 
-<h2>Package-by-Feature with the Default Access Modifier.</h2>
+<div class="row">
+    <div class="col s12 l8">
 
-<p>
-    A lot of business applications are written using a three-tier architecture: View, Business, and Data layers,
-    and all model objects are used by all three layers.
-    In some codebases, the classes for these applications are organized by layer.
-    In some application, which have the need to register various users and the company they work for, the code structure would result in something like:
-</p>
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Package-by-Feature with the Default Access Modifier.</span>
 
-<pre>
+
+                <p>
+                    A lot of business applications are written using a three-tier architecture: View, Business, and Data layers,
+                    and all model objects are used by all three layers.
+                    In some codebases, the classes for these applications are organized by layer.
+                    In some application, which have the need to register various users and the company they work for, the code structure would result in something like:
+                </p>
+                
+                <pre>
     tld.domain.project.model.Company
     tld.domain.project.model.User
     tld.domain.project.controllers.CompanyController
@@ -21,45 +27,45 @@ date:   2020-02-20 20:00:00 +0100
     tld.domain.project.storage.UserRepository
     tld.domain.project.service.CompanyService
     tld.domain.project.service.UserService
-</pre>
-
-<p>
-    Using such a <em>package-by-layer</em> structure for your classes requires a lot of methods to be public.
-    The <code>UserService</code> needs to be able to read and write Users into storage and,
-    since the <code>UserRepository</code> is in another package,
-    almost all methods of the <code>UserRepository</code> would need to be public.
-</p>
-
-<p>
-    The organization might have a policy to send an email to a user, to notify them when their password has been changed.
-    Such a policy might be implemented in the <code>UserService</code>.
-    Since the methods in the <code>UserRepository</code> are public,
-    there is no protection against another part of the application invoking a method in <code>UserRepository</code>,
-    which changes the password but does not trigger the notification to be sent.
-</p>
-<p>
-    When this application is updated to include some customer-care module or a web-care interface,
-    some of the features in those modules might want to reset the password.
-    Since these features are built at a later point in time, perhaps after new developers have joined the team,
-    these developers might be tempted to access the <code>UserRepository</code>
-    directly from a <code>CustomerCareService</code> instead of calling the <code>UserService</code> and triggering the notification.
-</p>
-
-<p>
-    The Java language provides a mechanism to prevent this: <strong>access modifiers</strong>.
-</p>
-
-<p>
-The default access modifier means we do not explicitly declare an access modifier for a class, field, method, etc.
-A variable or method declared without any access control modifier is available only to other classes in the same package.
-This is also called <em>package-private</em>.
-</p>
-<p>
-    In order to benefit from that access protection mechanism,
-    the code base should be organized into a package-by-feature package hierarchy.
-    The same classes as before would be packaged like this:
-</p>
-<pre>
+                </pre>
+                
+                <p>
+                    Using such a <em>package-by-layer</em> structure for your classes requires a lot of methods to be public.
+                    The <code>UserService</code> needs to be able to read and write Users into storage and,
+                    since the <code>UserRepository</code> is in another package,
+                    almost all methods of the <code>UserRepository</code> would need to be public.
+                </p>
+                
+                <p>
+                    The organization might have a policy to send an email to a user, to notify them when their password has been changed.
+                    Such a policy might be implemented in the <code>UserService</code>.
+                    Since the methods in the <code>UserRepository</code> are public,
+                    there is no protection against another part of the application invoking a method in <code>UserRepository</code>,
+                    which changes the password but does not trigger the notification to be sent.
+                </p>
+                <p>
+                    When this application is updated to include some customer-care module or a web-care interface,
+                    some of the features in those modules might want to reset the password.
+                    Since these features are built at a later point in time, perhaps after new developers have joined the team,
+                    these developers might be tempted to access the <code>UserRepository</code>
+                    directly from a <code>CustomerCareService</code> instead of calling the <code>UserService</code> and triggering the notification.
+                </p>
+                
+                <p>
+                    The Java language provides a mechanism to prevent this: <strong>access modifiers</strong>.
+                </p>
+                
+                <p>
+                The default access modifier means we do not explicitly declare an access modifier for a class, field, method, etc.
+                A variable or method declared without any access control modifier is available only to other classes in the same package.
+                This is also called <em>package-private</em>.
+                </p>
+                <p>
+                    In order to benefit from that access protection mechanism,
+                    the code base should be organized into a package-by-feature package hierarchy.
+                    The same classes as before would be packaged like this:
+                </p>
+                <pre>
     tld.domain.project.company.Company
     tld.domain.project.company.CompanyController
     tld.domain.project.company.CompanyService
@@ -68,33 +74,58 @@ This is also called <em>package-private</em>.
     tld.domain.project.user.UserController
     tld.domain.project.user.UserService
     tld.domain.project.user.UserRepository
-</pre>
+                </pre>
+                
+                <p>
+                    When organized like this, none of the methods in the <code>UserRepository</code> would have to be public.
+                    They all could be package-private and still be available to the <code>UserService</code>.
+                    The methods of the <code>UserService</code> could be made public.
+                </p>
+                <p>
+                    Any developer building the <code>CustomerCareService</code>, in the package <code>tld.domain.project.support</code>,
+                    would <strong>not</strong> be able to invoke methods on the <code>UserRepository</code>
+                    and should call the methods of the <code>UserService</code>.
+                    This way the code structure and the access modifiers help to ensure 
+                    that the application still adheres to the policy to send the notification.
+                </p>
+                
+                <p>
+                    This strategy for organizing the classes in your codebase will help reduce the coupling in your codebase.
+                </p>
+            </div>
 
-<p>
-    When organized like this, none of the methods in the <code>UserRepository</code> would have to be public.
-    They all could be package-private and still be available to the <code>UserService</code>.
-    The methods of the <code>UserService</code> could be made public.
-</p>
-<p>
-    Any developer building the <code>CustomerCareService</code>, in the package <code>tld.domain.project.support</code>,
-    would <strong>not</strong> be able to invoke methods on the <code>UserRepository</code>
-    and should call the methods of the <code>UserService</code>.
-    This way the code structure and the access modifiers help to ensure 
-    that the application still adheres to the policy to send the notification.
-</p>
-
-<p>
-    This strategy for organizing the classes in your codebase will help reduce the coupling in your codebase.
-</p>
+        </div>
+    </div>
 
 
-<hr />
 
-<p>
-    This article was written by me as a contribution for the book <em><a href="https://www.oreilly.com/library/view/97-things-every/9781491952689/">97 Things Every Java Programmer Should Know</a></em>.
-    Many thanks to <a href="https://twitter.com/trisha_gee">Trisha Gee</a> for her effort in reviewing it.
-</p>
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-content">
 
-<p>
-    <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
-</p>
+                <p>
+                    This article was written by me as a contribution for the book <em><a href="https://www.oreilly.com/library/view/97-things-every/9781491952689/">97 Things Every Java Programmer Should Know</a></em>.
+                    Many thanks to <a href="https://twitter.com/trisha_gee">Trisha Gee</a> for her effort in reviewing it.
+                </p>
+                <p>
+                    <a href="https://www.oreilly.com/library/view/97-things-every/9781491952689/">
+                    <img src="https://learning.oreilly.com/library/cover/9781491952689/250w/"
+                        alt="Cover of the book '97 Things Every Java Programmer Should Know'"/></a>
+                </p>
+
+                
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+

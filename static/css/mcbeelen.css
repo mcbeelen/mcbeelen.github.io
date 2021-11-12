@@ -24,6 +24,10 @@ dd {
     color: #0D47A1 !important;
 }
 
+.card .card-content p {
+    margin-bottom: 8px;
+}
+
 ul ul {
     padding-left: 20px;
 }
