@@ -1,6 +1,7 @@
 source:      .
 destination: target
-include: CNAME
+include: 
+  - CNAME
 
 # Inherited from default config:
 

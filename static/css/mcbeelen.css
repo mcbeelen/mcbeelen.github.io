@@ -28,6 +28,33 @@ dd {
     margin-bottom: 8px;
 }
 
+.card .card-content h2 {
+    font-size: larger;
+    font-style: italic;
+}
+.card .card-content h3 {
+    font-size: larger;
+}
+
+.card .card-content h4 {
+    font-size: 2.75vh;
+    margin-left: 12px;
+}
+
+.card .card-content h5 {
+    font-size: 2.25vh;
+    margin-left: 12px;
+}
+
+.card .card-content ul.numbered li {
+    list-style-type: decimal;
+}
+
+.card .card-content img {
+    border: 1px solid #000066;
+    max-width: 100%;
+}
+
 ul ul {
     padding-left: 20px;
 }
