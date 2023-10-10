@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Single Responsibility Principle in Web Development by McBeelen</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    <link rel="stylesheet" href="/static/css/mcbeelen.css?v=2023-10-10 08:07:52 +0000">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="/index.html" class="brand-logo">McBeelen</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/archive.html">Archive</a> </li>
+                <li><a href="/about.html">About me</a> </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h3>Introduction</h3>
+<p>
+    Of course one of the first lessons has to be related to the number one.<br />
+    Although I will interpret it loosely into <em>single</em> and <em>once</em>.
+</p>
+
+<p>
+    There are two principles known in the field of Software Engineering, both of whom are very beneficial in managing
+    any kind of software system in a simple and powerful way.<br />
+    These are:
+</p>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single Responsibility Principle</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY: Don't repeat yourself</a></li>
+    </ul>
+
+
+<h3>Single Responsibility Principle</h3>
+
+<blockquote>
+    The <strong>single responsibility principle</strong> states that every piece of a system (file, module or class)
+    should have responsibility over a <strong>single part</strong> of the functionality provided by the software,<br />
+    and that responsibility should be entirely encapsulated by the class.
+</blockquote>
+
+<p>
+    Some rules:
+    <ul>
+        <li>Every single piece of the system should have a <strong>just one single purpose</strong>.</li>
+        <li>
+            If several aspects apply to a certain area of a system, those different aspects should be implemented in seperate
+            pieces: <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">Separation of concerns</a>
+        </li>
+    </ul>
+</p>
+
+<h3>How does that apply to Web Development?</h3>
+
+<p>
+    When developing for the web there are three techniques to comprehend for the three main aspects of a web page:
+</p>
+    <ol>
+        <li><strong>HTML</strong> to determine <em>WHAT</em> should be shown on the page: The content</li>
+        <li><strong>CSS</strong> to determine <em>HOW</em> it should be shown on the page: The layout</li>
+        <li><strong>JavaScript</strong> to add <em>INTERACTION</em> to the page: The layout</li>
+    </ol>
+
+<p>
+    The first important this to learn is to keep all layout related information from the HTML.<br />
+</p>
+
+
+<h5>HTML</h5>
+
+<p>
+    Any HTML-file contains the content to show on screen, where all elements are enclosed in <em>tags</em>.
+    Those tags adds a structure to the document and thereby inform any browser how to interpret the document.<br />
+    Without any guidelines on HOW to render that document (CSS), all browsers have a default way on
+    how to render a document and that will be largely dependent on which tags are found in the document. Some examples:
+</p>
+    <dl class="dl-horizontal">
+        <dt>&lt;p&gt;</dt>
+            <dd>Paragraph of text</dd>
+        <dt>&lt;ul&gt;</dt>
+            <dd>Unordered List/dd>
+        <dt>&lt;h1&gt;, &lt;h2&gt;, ..., &lt;h7&gt;</dt>
+            <dd>Headers in various sizes</dd>
+        <dt>&lt;division&gt;</dt>
+            <dd>Division (of section)</dd>
+        <dt>&lt;nav&gt;</dt>
+            <dd>Navigation block</dd>
+    </dl>
+<p>
+    These are just a subset of <a href="http://www.w3schools.com/tags/">a list of available tags</a>.<br />
+
+</p>
+
+<h5>CSS</h5>
+
+<p>
+    After years of web development some best practices have emerged on when to use certain tags
+    and how to apply styling to them: <a href="https://getbootstrap.com">Bootstrap</a><br />
+    When you start writing HTML, stick to the Fundamental HTML elements tags mentioned in the documentations of
+    Bootstraps<a href="http://getbootstrap.com/2.3.2/base-css.html">Base CSS</a><br />
+    <small>Note: That documentation is based upon the outdated version 2 of Bootstrap, but is still useful and valid
+    for the HTML-tags in newer versions.</small>
+</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col m6 s12">
+                    <h5 class="white-text">Contact Info</h5>
+                    <p class="grey-text text-lighten-4">mcbeelen @ gmail dot com</p>
+                </div>
+                <div class="col m4 offset-l2 s12">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/mcbeelen">Twitter</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/mcbeelen">Github</a></li>
+                        <li><a class="grey-text text-lighten-3" rel="me" href="https://fosstodon.org/@mcbeelen">Mastodon</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+
+</body>
+</html>

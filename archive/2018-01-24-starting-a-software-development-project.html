@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Starting a Software Development Project by McBeelen</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
+    <link rel="stylesheet" href="/static/css/mcbeelen.css?v=2023-10-10 08:07:52 +0000">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="/index.html" class="brand-logo">McBeelen</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/archive.html">Archive</a> </li>
+                <li><a href="/about.html">About me</a> </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2>Context</h2>
+
+<p>
+    A bit more then a year after the Software Apprenticeship started, we covered a lot of <a href="/lessons.html">topics</a>.<br />
+    But still a major topic was missing: How to use that (theoretical) knowledge for building a working Software Solution.<br/>
+    Luckily we caught a break: A friend challenged us to build an App to help her in doing some boring recurring administrative work.
+    This was an nice opportunity to explain and experience how a Software Project gets started.
+</p>
+
+<h2>Important questions first</h2>
+
+<p>
+    When a project gets started there are usually a lot of unknowns and questions, which needs answers.
+    All or most of them needs to be addressed, but not all of them have the same priority and a very interesting
+    aspect about all these questions is: How do we keep track of the questions and answers.<br />
+
+</p>
+
+<dl>
+    <dt>How are we going to call this project?</dt>
+    <dd>
+        Once something has a name it becomes a identity and we can speak more easily about it, so naming this is important,
+        but naming things is hard and it's best done as a <a href="http://arlobelshee.com/good-naming-is-a-process-not-a-single-step/">process</a>.<br />
+        Eventually things like marketing, branding, availability of a domain name and availability on Social Media become important, but not just yet.<br />
+        So start with some 'internal project name' and don't worry about the rest yet.<br />
+        Suggestions for codenames:
+        <ul>
+            <li>Combine some word of the address of the client from what three words<a href="https://map.what3words.com"></a></li>
+            <li>Some <a href="https://codepen.io/mikedryan/details/vLrgqr">random generated name like docker containers</a></li>
+        </ul>
+    </dd>
+
+    <dt>In which language are we going to write the documentation / Software Architecture Document</dt>
+    <dd>
+        The short answer: Use English!<br />
+        The longer answer: For our project we want to have a <a href="https://martinfowler.com/bliki/UbiquitousLanguage.html">'Ubiquitous Language'</a>
+        All stakeholders and participants in the project should be able to communicate about project and should not be hindered by
+        their capacity to speak / write in the language used in the Ubiquitous Language. So under some conditions perhaps you should switch
+        to the native language of you product owner.
+    </dd>
+
+    <dt>Where are we going to store the documentation?</dt>
+    <dd>
+        Documentation should be under version control as well!<br/>
+        So logical places for documentation are:
+        <ul>
+            <li>A markdown in GIT</li>
+            <li>Some wiki with History / Version Control</li>
+            <li>Word with track changes</li>
+        </ul>
+    </dd>
+</dl>
+
+
+<h2>What are we going to document?</h2>
+
+<p>
+    Fortunately there are some good model available to identify what needs to be investigated and documented related to a Software Product.<br/>
+    I prefer to write a Software Architecture Document based upon
+    <a href="https://en.wikipedia.org/wiki/4%2B1_architectural_view_model">'4+1 Architectural View Model'</a><br >
+    This structure help me to answer the following questions:
+</p>
+
+<dl>
+    <dt>What are we going to build?</dt>
+    <dd>
+        In order to get an general impression what the system is going to do, I find it useful to draw a 'System Landscape Diagram', which
+        show and identifies the actors, the other software systems involved and their relationship to the 'Software System'.<br />
+        A 'System Landscape Diagram' is one of the <a href="https://c4model.com/#coreDiagrams">Core diagrams of the C4 Model</a><br />
+        <br />
+
+
+        The <em>Scenario's'</em> should be written as <a href="http://docs.behat.org/en/v2.5/guides/1.gherkin.html">feature files using Gherkin</a>,
+        so that they can be reused for automatic tests using <a href="https://cucumber.io/">Cucumber</a><br />
+        If a more detailed / formal documentation is needed for features, you could look at
+        <a href="https://www.researchgate.net/figure/Use-case-description-for-add-comment_277999085">'Use Case Descriptions'</a> although
+        they are a bit out of fashion.
+    </dd>
+
+    <dt>How are we going to build this project?</dt>
+    <dd>
+        The <em>Development view</em> should give answer to the following questions:
+        Where are going to store the project code?<br/>
+        In which language are we going to develop this project?<br />
+        Which frameworks are we going to use?<br />
+        How do we test, build, deploy the project?<br />
+        How do we track our bugs, features, improvements?<br />
+        <br />
+        This could be written down as a seperate chapter of the SAD or in the README.md of the project.
+    </dd>
+
+    <dt>What is the structure of the appliation?</dt>
+    <dd>
+        This is a combination of the <em>Logical View</em> with information like a <strong>Entity-Relationship-Diagram</strong> or <strong>database schema</strong>
+        and <em>Process View</em> with <strong>Sequence Diagrams</strong>, <strong>State Diagrams</strong> and <strong>Activity Diagrams</strong>
+    </dd>
+
+    <dt>How does the application get deployed in various environments?</dt>
+    <dd>
+        A <em>Physical View</em> with a deployment diagram.<br >
+        A 'Container Diagram' from the <a href="https://c4model.com/">C4 Model</a> works pretty good for this!
+    </dd>
+</dl>
+
+
+<h3>Ubiquitous Language</h3>
+
+<p>
+    As mentioned before: Each project should use a <a href="https://martinfowler.com/bliki/UbiquitousLanguage.html">'Ubiquitous Language'</a><br />
+    In order to make adoption of the Ubiquitous Language for the project as easy as possible, the project team should
+    create a <strong>Glossary</strong>, which identifies all key terms or concepts and adds a description to the clarify if needed.
+</p>
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col m6 s12">
+                    <h5 class="white-text">Contact Info</h5>
+                    <p class="grey-text text-lighten-4">mcbeelen @ gmail dot com</p>
+                </div>
+                <div class="col m4 offset-l2 s12">
+                    <h5>Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/mcbeelen">Twitter</a></li>
+                        <li><a class="grey-text text-lighten-3" href="https://github.com/mcbeelen">Github</a></li>
+                        <li><a class="grey-text text-lighten-3" rel="me" href="https://fosstodon.org/@mcbeelen">Mastodon</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </footer>
+
+
+</body>
+</html>

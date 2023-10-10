@@ -1,0 +1,65 @@
+h2 {
+    font-size: 3.0rem
+}
+
+h3 {
+    font-size: 2.4rem
+}
+
+nav {
+    background-color: #000066;
+    border-color: #000066;
+}
+
+dd {
+    margin-left: 16px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #E3F2FD !important;
+}
+
+.card .card-content {
+    color: #0D47A1 !important;
+}
+
+.card .card-content p {
+    margin-bottom: 8px;
+}
+
+.card .card-content h2 {
+    font-size: larger;
+    font-style: italic;
+}
+.card .card-content h3 {
+    font-size: larger;
+}
+
+.card .card-content h4 {
+    font-size: 2.75vh;
+    margin-left: 12px;
+}
+
+.card .card-content h5 {
+    font-size: 2.25vh;
+    margin-left: 12px;
+}
+
+.card .card-content ul.numbered li {
+    list-style-type: decimal;
+}
+
+.card .card-content img {
+    border: 1px solid #000066;
+    max-width: 100%;
+}
+
+ul ul {
+    padding-left: 20px;
+}
+
+
+.page-footer {
+    background-color: #0D47A1;
+}
